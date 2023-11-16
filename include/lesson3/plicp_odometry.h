@@ -45,6 +45,13 @@ private:
     ros::NodeHandle node_handle_;           // ros中的句柄
     ros::NodeHandle private_node_;          // ros中的私有句柄
     ros::Subscriber laser_scan_subscriber_; // 声明一个Subscriber
+    ros::Subscriber raw_img_subscriber_;
+    ros::Subscriber img_subscriber_;
+
+
+   
+    ros::Publisher imu_corrected_publisher_;
+    ros::Publisher m; 
     ros::Publisher odom_publisher_;         // 声明一个Publisher
 
     ros::Time last_icp_time_;

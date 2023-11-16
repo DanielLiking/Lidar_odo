@@ -27,6 +27,9 @@ ScanMatchPLICP::ScanMatchPLICP() : private_node_("~"), tf_listener_(tfBuffer_)
 
     odom_publisher_ = node_handle_.advertise<nav_msgs::Odometry>("odom_plicp", 50);
 
+
+    
+
     // 参数初始化
     InitParams();
 
