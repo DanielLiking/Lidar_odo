@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(lesson3)
+project(2DLIO)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 set(CMAKE_BUILD_TYPE "Release")
@@ -10,6 +10,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3 -Wall -g -pthread")
 
 # List C++ dependencies on ros packages
 find_package(catkin REQUIRED COMPONENTS
+    tf
     tf2
     tf2_geometry_msgs
     tf2_ros
@@ -46,7 +47,7 @@ pkg_check_modules(csm REQUIRED csm)
 
 catkin_package(
  INCLUDE_DIRS include
- LIBRARIES lesson3
+ LIBRARIES 2DLIO
  DEPENDS PCL GTSAM
 #  DEPENDS system_lib
 )
@@ -96,6 +97,7 @@ file(GLOB visual_loop_files
     "src/visual_odometry/visual_loop/ThirdParty/DVision/*.cpp"
     "src/visual_odometry/visual_feature/camera_models/*.cc"
 )    
+
 add_executable(${PROJECT_NAME}_visual_feature ${visual_feature_files})
 target_link_libraries(${PROJECT_NAME}_visual_feature ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${OpenCV_LIBS} ${CERES_LIBRARIES})
 ######################

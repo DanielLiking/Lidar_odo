@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "lesson3/scan_match_plicp.h"
+#include "2DLIO/scan_match_plicp.h"
 
 ScanMatchPLICP::ScanMatchPLICP()
 {

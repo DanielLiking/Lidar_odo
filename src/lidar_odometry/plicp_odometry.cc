@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "lesson3/plicp_odometry.h"
+#include "2DLIO/plicp_odometry.h"
 #include "tf2_geometry_msgs/tf2_geometry_msgs.h"
 
 ScanMatchPLICP::ScanMatchPLICP() : private_node_("~"), tf_listener_(tfBuffer_)
