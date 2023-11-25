@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(2DLIO)
+project(D2LIO)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 set(CMAKE_BUILD_TYPE "Release")
-set(CMAKE_CXX_FLAGS "-std=c++14")
+set(CMAKE_CXX_FLAGS "-std=c++11")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3 -Wall -g -pthread")
 
 
@@ -35,7 +35,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 find_package(OpenMP REQUIRED)
 find_package(PCL REQUIRED)
-find_package(OpenCV REQUIRED)
+find_package(OpenCV 3 REQUIRED)
 find_package(Ceres REQUIRED)
 find_package(GTSAM REQUIRED QUIET)
 find_package(Boost REQUIRED COMPONENTS filesystem program_options system timer)
@@ -47,7 +47,7 @@ pkg_check_modules(csm REQUIRED csm)
 
 catkin_package(
  INCLUDE_DIRS include
- LIBRARIES 2DLIO
+ LIBRARIES D2LIO
  DEPENDS PCL GTSAM
 #  DEPENDS system_lib
 )
@@ -98,8 +98,8 @@ file(GLOB visual_loop_files
     "src/visual_odometry/visual_feature/camera_models/*.cc"
 )    
 
-add_executable(${PROJECT_NAME}_visual_feature ${visual_feature_files})
-target_link_libraries(${PROJECT_NAME}_visual_feature ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${OpenCV_LIBS} ${CERES_LIBRARIES})
+#add_executable(${PROJECT_NAME}_visual_feature ${visual_feature_files})
+#target_link_libraries(${PROJECT_NAME}_visual_feature ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${OpenCV_LIBS} ${CERES_LIBRARIES})
 ######################
 ### lidar odometry
 ######################

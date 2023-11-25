@@ -23,12 +23,9 @@ ScanMatchPLICP::ScanMatchPLICP() : private_node_("~"), tf_listener_(tfBuffer_)
     ROS_INFO_STREAM("\033[1;32m----> PLICP odometry started.\033[0m");
 
     laser_scan_subscriber_ = node_handle_.subscribe(
-        "laser_scan", 1, &ScanMatchPLICP::ScanCallback, this);
+        "scan", 1, &ScanMatchPLICP::ScanCallback, this);
 
     odom_publisher_ = node_handle_.advertise<nav_msgs::Odometry>("odom_plicp", 50);
-
-
-    
 
     // 参数初始化
     InitParams();
@@ -521,7 +518,7 @@ bool ScanMatchPLICP::NewKeyframeNeeded(const tf2::Transform &d)
 
 int main(int argc, char **argv)
 {
-    ros::init(argc, argv, "lesson3_scan_match_plicp_node"); // 节点的名字
+    ros::init(argc, argv, "D2LIO_scan_match_plicp_node"); // 节点的名字
     ScanMatchPLICP scan_match_plicp;
 
     ros::spin();
